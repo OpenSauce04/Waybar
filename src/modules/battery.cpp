@@ -614,10 +614,6 @@ const std::string waybar::modules::Battery::formatTimeRemaining(float hoursRemai
   uint16_t full_hours = static_cast<uint16_t>(hoursRemaining);
   uint16_t minutes = static_cast<uint16_t>(60 * (hoursRemaining - full_hours));
   auto format = std::string("{H} h {M} min");
-  if (full_hours == 0 && minutes == 0) {
-    // Migh as well not show "0h 0min"
-    return "";
-  }
   if (config_["format-time"].isString()) {
     format = config_["format-time"].asString();
   }
